@@ -21,6 +21,10 @@ export default function RootLayout({
         <header>
           <Link href="/">Job Board</Link>
         </header>
+        <nav>
+          <Link href={'/login'}>Login</Link>
+          <Link href={'/post'}>Post a Job</Link>
+        </nav>
         {children}
       </body>
     </html>

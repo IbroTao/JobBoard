@@ -19,12 +19,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <Link href="/">Job Board</Link>
+          <div className="container flex justify-between py-4 px-6 mx-auto">
+            <Link href={"/"} className="font-bold">Job Board</Link>
+            <nav className="flex gap- *:bg-gray-200 *:py-2">
+            <Link href={'/login'}>Login</Link>
+            <Link href={'/new-listing'}>Post a Job</Link>
+            </nav>
+          </div>
         </header>
-        <nav>
-          <Link href={'/login'}>Login</Link>
-          <Link href={'/post'}>Post a Job</Link>
-        </nav>
         {children}
       </body>
     </html>

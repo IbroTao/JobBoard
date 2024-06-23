@@ -9,9 +9,11 @@ export default function JobRow() {
                         src="../images/me.jpg" alt="" />
                 </div>
                 <div className="grow">
-                    <div>Spotify</div>
-                    <div>Product Designer</div>
-                    <div>Remote &middot; New York, USA &middot; Full-time</div>
+                    <div className="text-gray-500 text-sm">Spotify</div>
+                    <div className="font-bold text-lg">Product Designer</div>
+                    <div className="text-sm text-gray-400 mb-1">
+                        Remote &middot; New York, USA &middot; Full-time
+                    </div>
                 </div>
                 <div className="content-end text-sm text-gray-500">
                     2 weeks ago

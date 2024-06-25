@@ -1,3 +1,3 @@
-export function GET() {
-    return Response.json('man')
-}
+import {handleAuth} from "@workos-inc/authkit-nextjs";
+
+export const GET = handleAuth();

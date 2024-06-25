@@ -9,7 +9,7 @@ export default function Jobs() {
             <div className="flex flex-col gap-4 container">
                 <JobRow/>
                 <JobRow/>
-                <JobRow/>
+                <JobRow/>    
                 <JobRow/>
                 <JobRow/>
             </div>

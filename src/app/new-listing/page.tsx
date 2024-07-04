@@ -5,9 +5,13 @@ export default async function NewLisitngPage() {
     const {user} = await getUser();
     const workos = new WorkOS(process.env.WORKOS_API_KEY)
 
-    workos.userManagement.listOrganizationMemberships({
-        
-    })
+    let organizationMemberships = []
+
+    if(user) {
+        organizationMemberships = await workos.userManagement.listOrganizationMemberships({
+            userId: user?.id,  
+        })
+    }
 
     return(
         <div className="container">

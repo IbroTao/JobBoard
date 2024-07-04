@@ -1,9 +1,14 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getUser } from "@workos-inc/authkit-nextjs"
+import { WorkOS } from "@workos-inc/node";
 
 export default async function NewLisitngPage() {
     const {user} = await getUser();
+    const workos = new WorkOS(process.env.WORKOS_API_KEY)
+
+    workos.userManagement.listOrganizationMemberships({
+        
+    })
+
     return(
         <div className="container">
             {user && (
@@ -12,13 +17,13 @@ export default async function NewLisitngPage() {
             {!user && (
                 <div>
                     
-                    <h2 className="text-lg">Your companies</h2>
+                    <h2 className="text-lg mt-6">Your companies</h2>
                     <p className="text-sm text-gray-500 mb-2">Select a company</p>
-                    <div className="border border-blue-2 00 bg-blue-50">
+                    <div className="border border-blue-2 00 bg-blue-50 p-4 rounded-md">
                         No companies found assigned to your user
                     </div>
 
-                    <h2 className="text-lg">Create a new company</h2>
+                    <h2 className="text-lg mt-6">Create a new company</h2>
                     <p className="text-gray-500 text-sm mb-2">To create a job listing your first need to register a company</p>
                     <form action="" className="flex gap-2">
                         <input

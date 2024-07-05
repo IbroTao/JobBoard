@@ -1,11 +1,22 @@
 import { getUser } from "@workos-inc/authkit-nextjs"
 import { WorkOS } from "@workos-inc/node";
 
+
 export default async function NewLisitngPage() {
     const {user} = await getUser();
+
+    if(!user) {
+        return(
+            <div className="container">
+                {user && (
+                    <div>You need to be logged in to post a job</div>
+                )}
+            </div>
+        )
+    }
     const workos = new WorkOS(process.env.WORKOS_API_KEY)
 
-    let organizationMemberships = []
+    let organizationMemberships:AutoPaginatable<OrganizationMembership>|null = null;
 
     if(user) {
         organizationMemberships = await workos.userManagement.listOrganizationMemberships({
@@ -15,12 +26,9 @@ export default async function NewLisitngPage() {
 
     return(
         <div className="container">
-            {user && (
-                <div>You need to be logged in to post a job</div>
-            )}
             {!user && (
                 <div>
-                    
+                    {JSON.stringify(organizationMembershipsrganizationMemberships)}
                     <h2 className="text-lg mt-6">Your companies</h2>
                     <p className="text-sm text-gray-500 mb-2">Select a company</p>
                     <div className="border border-blue-2 00 bg-blue-50 p-4 rounded-md">

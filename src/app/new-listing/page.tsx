@@ -8,27 +8,22 @@ export default async function NewLisitngPage() {
     if(!user) {
         return(
             <div className="container">
-                {user && (
-                    <div>You need to be logged in to post a job</div>
-                )}
+                <div>You need to be logged in to post a job</div>
             </div>
         )
     }
     const workos = new WorkOS(process.env.WORKOS_API_KEY)
 
-    let organizationMemberships:AutoPaginatable<OrganizationMembership>|null = null;
-
-    if(user) {
-        organizationMemberships = await workos.userManagement.listOrganizationMemberships({
+    const organizationMemberships = await workos.userManagement.listOrganizationMemberships({
             userId: user?.id,  
         })
-    }
 
     return(
         <div className="container">
-            {!user && (
                 <div>
-                    {JSON.stringify(organizationMembershipsrganizationMemberships)}
+                    <pre>
+                        {JSON.stringify(organizationMembershipsrganizationMemberships, null)}
+                    </pre>
                     <h2 className="text-lg mt-6">Your companies</h2>
                     <p className="text-sm text-gray-500 mb-2">Select a company</p>
                     <div className="border border-blue-2 00 bg-blue-50 p-4 rounded-md">
@@ -41,12 +36,12 @@ export default async function NewLisitngPage() {
                         <input
                             className="p-2 border border-gray-400 rounded-md"
                             type="text" placeholder="company name"/>
-                        <button className="flex gap-2 bg-gray-200 px-4 py-2 rounded-md">
+                        <button type="submit" className="flex gap-2 bg-gray-200 px-4 py-2 rounded-md">
                             Create company 
                         </button>
                     </form>
                 </div>
-            )}
         </div>
     )
 }
+    

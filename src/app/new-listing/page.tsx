@@ -1,3 +1,4 @@
+'use server';
 import { getUser } from "@workos-inc/authkit-nextjs"
 import { WorkOS } from "@workos-inc/node";
 
@@ -22,7 +23,7 @@ export default async function NewLisitngPage() {
         <div className="container">
                 <div>
                     <pre>
-                        {JSON.stringify(organizationMembershipsrganizationMemberships, null)}
+                        {JSON.stringify(organizationMemberships, null)}
                     </pre>
                     <h2 className="text-lg mt-6">Your companies</h2>
                     <p className="text-sm text-gray-500 mb-2">Select a company</p>

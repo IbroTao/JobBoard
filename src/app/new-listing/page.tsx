@@ -23,7 +23,7 @@ export default async function NewLisitngPage() {
         <div className="container">
                 <div>
                     <pre>
-                        {JSON.stringify(organizationMemberships, null)}
+                        {JSON.stringify(organizationMemberships, null, 2)}
                     </pre>
                     <h2 className="text-lg mt-6">Your companies</h2>
                     <p className="text-sm text-gray-500 mb-2">Select a company</p>
